@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Req } from '@nestjs/common';
 import { CameraService } from './camera.service';
 
+
 @Controller('camera')
 export class CameraController {
     constructor(private readonly cameraService:CameraService){}
@@ -9,6 +10,15 @@ export class CameraController {
     salutation(): string {        
         return 'Please, select a camera to start streaming';
     }
+
+
+    
+    @Get('start')
+    startStreaming() {        
+        return this.cameraService.startVideoStreaming();
+    }
+
+    
 
     @Get(':id')
     getCamera(@Param('id') id): string {        
