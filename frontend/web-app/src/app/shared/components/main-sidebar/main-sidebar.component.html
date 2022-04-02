@@ -1,0 +1,17 @@
+<ion-menu contentId="main-content" type="overlay">
+  <ion-content>
+    <ion-list id="inbox-list">
+      <!--<ion-list-header>Inbox</ion-list-header>
+      <ion-note>hi@ionicframework.com</ion-note>-->
+
+      <ion-menu-toggle auto-hide="false" *ngFor="let item of menuItems; let i = index">
+        <!--[routerLink]="[item.url]"-->
+        <ion-item routerDirection="root"  lines="none" detail="false" routerLinkActive="selected">
+          <ion-icon slot="start" [ios]="item.icon + '-outline'" [md]="item.icon + '-sharp'"></ion-icon>
+          <ion-label>{{ item.label }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+
+  </ion-content>
+</ion-menu>
