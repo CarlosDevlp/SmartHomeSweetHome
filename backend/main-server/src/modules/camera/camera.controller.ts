@@ -7,21 +7,28 @@ export class CameraController {
     constructor(private readonly cameraService:CameraService){}
 
     @Get()
+    getAll(){
+        return this.cameraService.getAllCamerasData();
+    }
+
+    
+    @Get(':id')
+    getCamera(@Param('id') id) {        
+        return this.cameraService.findCameraData(id);
+    }
+
+    @Get('help')
     salutation(): string {        
         return 'Please, select a camera to start streaming';
     }
-
-
     
     @Get('start')
     startStreaming() {        
         return this.cameraService.startVideoStreaming();
     }
 
-    
-
-    @Get(':id')
-    getCamera(@Param('id') id): string {        
+    @Get(':id/start')
+    startCameraConnection(@Param('id') id): string {        
         return this.cameraService.generateVideoStreaming(id);
     }
 }

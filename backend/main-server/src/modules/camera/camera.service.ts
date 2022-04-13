@@ -1,10 +1,30 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Camera, CameraDocument } from 'src/shared/models/camera.schema';
+import { Model } from 'mongoose';
 import { successAction, failAction } from '../../shared/utils/response-builder';
 const Stream = require('node-rtsp-stream');
 
 @Injectable()
 export class CameraService {
-    generateVideoStreaming(id: number){
+
+    constructor(@InjectModel(Camera.name) private cameraModel: Model<CameraDocument>) {}
+
+    async getAllCamerasData(): Promise<Camera[]>{
+         return await this.cameraModel.find().exec() || [];
+    }
+
+    async findCameraData(id:any): Promise<Camera>{
+        try{
+            return await this.cameraModel.findById(id).exec();
+        }catch(error){
+            return null;
+        }
+        
+    }
+
+
+    generateVideoStreaming(id: number){        
         return 'Retornando señal de video de camara '+id;      
     }    
 
