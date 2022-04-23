@@ -1,0 +1,23 @@
+<ion-header>  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="cameras"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Camara {{ camera?.name }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmForceCameraRestart()">       
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>  
+  <app-camera-viewer *ngIf="camera; else showLoading" 
+    #cameraViewer
+    [wsPort]="camera.ws_port"
+    (onActivateCameraButtonClicked)="startCamera()"></app-camera-viewer>
+  <ng-template #showLoading>
+    <app-loading></app-loading>
+  </ng-template>
+</ion-content>

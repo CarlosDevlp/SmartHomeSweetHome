@@ -1,0 +1,19 @@
+.camera-viewer-container{
+    position: relative;    
+    .btn-activate-camera{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }    
+    .camera-player{
+        width:100%;
+    }
+
+    .loading-camera-message{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        opacity: 0.6;
+    }
+}

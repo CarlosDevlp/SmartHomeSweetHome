@@ -1,0 +1,13 @@
+<div class="camera-viewer-container">
+  <ion-button class="btn-activate-camera"
+   *ngIf="showBtnActivateCamera"
+   (click)="activateCamera()">
+    Activar cámara
+    <ion-icon slot="end" name="play-circle"></ion-icon>
+  </ion-button>
+  <app-loading 
+    *ngIf="showLoading"  
+    class="loading-camera-message" 
+    message="Cargando cámara..."></app-loading>
+  <canvas id="camera-viewer" class="camera-player"></canvas>
+</div>

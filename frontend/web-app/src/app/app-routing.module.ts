@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'alarms',
     loadChildren: () => import('./pages/alarms/alarms.module').then( m => m.AlarmsPageModule)
+  },
+  {
+    path: 'camera',
+    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
   }
 ];
 

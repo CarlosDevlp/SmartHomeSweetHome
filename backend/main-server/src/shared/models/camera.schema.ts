@@ -16,6 +16,12 @@ export class Camera {
   
   @Prop()
   url: string;
+
+  @Prop()
+  ws_port: string;
+
+  @Prop()
+  image_url: string;
 }
 
 export const CameraSchema = SchemaFactory.createForClass(Camera);

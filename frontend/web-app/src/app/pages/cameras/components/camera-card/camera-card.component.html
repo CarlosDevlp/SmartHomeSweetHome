@@ -1,0 +1,10 @@
+<ion-card class="camera-card" [href]="'camera/'+camera.id">
+  <img [src]="camera.image_url" />
+
+  <ion-card-header>
+    <!--<ion-card-subtitle>{{camera.name}}</ion-card-subtitle>-->
+    <ion-card-title>{{camera.name}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>{{camera.description}}</ion-card-content>
+</ion-card>

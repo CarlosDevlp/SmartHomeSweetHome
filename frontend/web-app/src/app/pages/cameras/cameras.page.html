@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar  color="secondary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,4 +9,11 @@
 
 <ion-content>
 
+  <app-loading *ngIf="cameras.length==0"></app-loading>
+  <div class="camera-list">
+    <app-camera-card 
+      *ngFor="let camera of cameras" 
+      [camera]="camera"></app-camera-card>
+  </div>
+    
 </ion-content>

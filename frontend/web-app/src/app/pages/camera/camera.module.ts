@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CamerasPageRoutingModule } from './cameras-routing.module';
+import { CameraPageRoutingModule } from './camera-routing.module';
 
-import { CamerasPage } from './cameras.page';
-import { CameraCardComponent } from './components/camera-card/camera-card.component';
+import { CameraPage } from './camera.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CameraViewerComponent } from './components/camera-viewer/camera-viewer.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CamerasPageRoutingModule,
+    CameraPageRoutingModule,
     SharedModule
   ],
-  declarations: [CamerasPage, CameraCardComponent]
+  declarations: [CameraPage, CameraViewerComponent]
 })
-export class CamerasPageModule {}
+export class CameraPageModule {}
