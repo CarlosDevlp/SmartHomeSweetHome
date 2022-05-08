@@ -1,1 +1,3 @@
 ecosystem.config.js
+backend/main-server/package-lock.json
+frontend/web-app/package-lock.json
