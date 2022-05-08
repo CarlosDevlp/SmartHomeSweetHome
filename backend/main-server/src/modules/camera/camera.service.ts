@@ -16,7 +16,7 @@ export class CameraService {
     private async fetchCameras(){
         try{
             const cameras:Camera[]=  await this.cameraModel.find().exec() || [];
-            return cameras.map((camera:Camera)=> this.setCameraDataCompleteImageUrl(camera));
+            return cameras;//.map((camera:Camera)=> this.setCameraDataCompleteImageUrl(camera));
         }catch(error){
             throw "Hubo un error al intentar devolver el valor de la base de datos";
         }        
@@ -35,7 +35,10 @@ export class CameraService {
     async findCameraData(id:any){
         try{
             let camera:Camera= await this.cameraModel.findById(id).exec();
-            return successAction([this.setCameraDataCompleteImageUrl(camera)],'Se ha retornado la data exitosamente');
+            return successAction([
+                camera
+                //this.setCameraDataCompleteImageUrl(camera)
+            ],'Se ha retornado la data exitosamente');
         }catch(error){
             return null;
         }        

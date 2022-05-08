@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   API_BASE_URL: 'http://localhost:3000',
+  PUBLIC_IMAGES_URL: 'http://localhost:3000/public/images',
   API_WS_BASE_URL: 'ws://localhost'
 };
 

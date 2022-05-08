@@ -30,7 +30,7 @@ export class CameraService {
     });
     return this.cameras;
   }
-
+  
   private convertDataToCamera(data):Camera{
     let {_id, description, name, protocol, url, ws_port, image_url } = data;   
     return {
@@ -40,7 +40,7 @@ export class CameraService {
       protocol, 
       url, 
       ws_port, 
-      image_url
+      image_url: environment.PUBLIC_IMAGES_URL+'/'+ image_url
     };
   }
 
