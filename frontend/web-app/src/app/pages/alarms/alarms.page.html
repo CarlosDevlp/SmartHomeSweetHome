@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
+  <app-loading *ngIf="alarms.length==0"></app-loading>
+  <ion-list>
+    <!--<ion-list-header> Audio </ion-list-header>-->
+
+    <ion-item *ngFor="let alarm of alarms">      
+     <app-alarm-card  [alarm]="alarm" (onAlarmActivationClick)="confirmAlarmActivation(alarm.id)"></app-alarm-card>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

@@ -1,0 +1,13 @@
+<div class="alarm-item">
+  <ion-label>
+    <h2>{{alarm.name}}</h2>
+    <h3><b>Duration: {{alarm.duration}} segundos</b></h3>
+    <p>{{alarm.description}}</p>
+  </ion-label>
+  <ion-button class="btn-alarm-action"    
+    [disabled]="actionDisabled"
+    (click)="alarmAction()">
+    Reproducir 
+    <ion-icon slot="end" name="volume-high"></ion-icon>
+  </ion-button>
+</div>

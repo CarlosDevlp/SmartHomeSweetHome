@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { AlarmsPageRoutingModule } from './alarms-routing.module';
 
 import { AlarmsPage } from './alarms.page';
+import { AlarmCardComponent } from './components/alarm-card/alarm-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlarmsPageRoutingModule
+    AlarmsPageRoutingModule,
+    SharedModule
   ],
-  declarations: [AlarmsPage]
+  declarations: [AlarmsPage, AlarmCardComponent]
 })
 export class AlarmsPageModule {}

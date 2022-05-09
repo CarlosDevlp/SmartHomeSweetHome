@@ -30,6 +30,7 @@
     "mongoose": "^6.2.10",
     "node-rtsp-stream": "0.0.9",
     "node-webcam": "^0.8.0",
+    "play-sound": "^1.1.5",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
