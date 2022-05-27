@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Alarm } from '../models/alarm';
 import { map } from 'rxjs/operators';
+import { AppConfigurationService } from './app-configuration.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlarmService {
   private alarms:Alarm[]=[];  
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private appConfigurationService:AppConfigurationService) { }
 
   private convertDataToAlarms(data:[]):Alarm[]{
     this.alarms=[];    
@@ -39,7 +40,7 @@ export class AlarmService {
         resolve(this.alarms);
       });
     }
-    return this.http.get(environment.API_BASE_URL+'/alarm').pipe(      
+    return this.http.get(this.appConfigurationService.API_BASE_URL+'/alarm').pipe(      
       map(({data}:any)=>{
         return this.convertDataToAlarms(data);
       })      
@@ -47,7 +48,7 @@ export class AlarmService {
   }
 
   activateAlarm(id:string){
-    return this.http.get(environment.API_BASE_URL+'/alarm/'+id+'/activate').toPromise();
+    return this.http.get(this.appConfigurationService.API_BASE_URL+'/alarm/'+id+'/activate').toPromise();
   }
 
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { debounceTime, map } from 'rxjs/operators';
 import { Camera } from '../models/camera';
+import { AppConfigurationService } from './app-configuration.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Camera } from '../models/camera';
 export class CameraService {
 
   private cameras:Camera[]=[];    
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private appConfigurationService: AppConfigurationService) { }
 
   /**
    * 
@@ -40,7 +41,7 @@ export class CameraService {
       protocol, 
       url, 
       ws_port, 
-      image_url: environment.PUBLIC_IMAGES_URL+'/'+ image_url
+      image_url: this.appConfigurationService.PUBLIC_IMAGES_URL+'/'+ image_url
     };
   }
 
@@ -52,7 +53,7 @@ export class CameraService {
       });
     }
 
-    return this.http.get(environment.API_BASE_URL+'/camera/'+id).pipe(      
+    return this.http.get(this.appConfigurationService.API_BASE_URL+'/camera/'+id).pipe(      
       map(({data}:any)=>{
         return this.convertDataToCamera(data[0]);
       })    
@@ -65,7 +66,7 @@ export class CameraService {
         resolve(this.cameras);
       });
     }
-    return this.http.get(environment.API_BASE_URL+'/camera').pipe(      
+    return this.http.get(this.appConfigurationService.API_BASE_URL+'/camera').pipe(      
       map(({data}:any)=>{
         return this.convertDataToCameras(data);
       })      
@@ -73,6 +74,6 @@ export class CameraService {
   }
 
   startCamera(id:string){
-    return this.http.get(environment.API_BASE_URL+'/camera/'+id+'/start').toPromise();
+    return this.http.get(this.appConfigurationService.API_BASE_URL+'/camera/'+id+'/start').toPromise();
   }
 }

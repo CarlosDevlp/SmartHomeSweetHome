@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  API_BASE_URL: 'http://localhost:3000',
-  PUBLIC_IMAGES_URL: 'http://localhost:3000/public/images',
-  API_WS_BASE_URL: 'ws://localhost'
+  API_BASE_URL: 'http://192.168.0.24:3000',
+  PUBLIC_IMAGES_URL: 'http://192.168.0.24:3000/public/images',
+  API_WS_BASE_URL: 'ws://192.168.0.24'
 };
 
 /*
